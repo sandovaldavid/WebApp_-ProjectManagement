@@ -6,13 +6,26 @@
     <title>Gestión de Usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-inactive {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Cabecera -->
-    <header class="flex justify-between items-center p-4 bg-blue-600 text-white">
+    <header class="flex justify-between items-center p-4 bg-blue-600 text-white shadow-md">
         <div class="text-2xl font-bold">Gestión de Usuarios</div>
-        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="openCreateUserForm()">Crear Usuario</button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" onclick="openCreateUserForm()">Crear Usuario</button>
     </header>
 
     <!-- Contenido principal -->
@@ -57,7 +70,7 @@
     </main>
 
     <!-- Formulario de Creación/Edición de Usuario -->
-    <div id="modal-create-user" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+    <div id="modal-create-user" class="modal modal-inactive fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg shadow-lg w-1/2">
             <h3 class="text-xl font-semibold mb-4">Crear Usuario</h3>
             <form id="create-user-form">
@@ -81,19 +94,21 @@
                         <option>Cliente</option>
                     </select>
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Crear Usuario</button>
-                <button type="button" class="ml-2 text-red-500" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Crear Usuario</button>
+                <button type="button" class="ml-2 text-red-500 hover:text-red-700" onclick="closeModal()">Cancelar</button>
             </form>
         </div>
     </div>
 
     <script>
         function openCreateUserForm() {
-            document.getElementById('modal-create-user').classList.remove('hidden');
+            document.getElementById('modal-create-user').classList.remove('modal-inactive');
+            document.getElementById('modal-create-user').classList.add('modal-active');
         }
 
         function closeModal() {
-            document.getElementById('modal-create-user').classList.add('hidden');
+            document.getElementById('modal-create-user').classList.remove('modal-active');
+            document.getElementById('modal-create-user').classList.add('modal-inactive');
         }
     </script>
 
