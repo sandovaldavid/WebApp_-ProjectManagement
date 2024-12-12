@@ -5,22 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estimaciones de RNN</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        header {
+            background: linear-gradient(90deg, rgba(29,78,216,1) 0%, rgba(37,99,235,1) 100%);
+        }
+        .table-header {
+            background: linear-gradient(90deg, rgba(229,231,235,1) 0%, rgba(243,244,246,1) 100%);
+        }
+        .table-row:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .table-row:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .history-item {
+            background-color: #f3f4f6;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-item:nth-child(odd) {
+            background-color: #e5e7eb;
+        }
+        .history-item i {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Cabecera -->
-    <header class="flex justify-between items-center p-4 bg-blue-600 text-white">
-        <div class="text-2xl font-bold">Estimaciones de Tareas con RNN</div>
+    <header class="flex justify-between items-center p-4 text-white">
+        <div class="text-2xl font-bold"><i class="fas fa-chart-line"></i> Estimaciones de Tareas con RNN</div>
     </header>
 
     <!-- Contenido principal -->
     <main class="p-8">
         <!-- Tabla de Resultados de Estimaciones -->
         <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-4">Estimaciones de Tiempo y Costo</h2>
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-table"></i> Estimaciones de Tiempo y Costo</h2>
             <table class="w-full bg-white shadow-lg rounded-lg">
-                <thead class="bg-gray-200">
+                <thead class="table-header">
                     <tr>
                         <th class="p-4 text-left">Tarea</th>
                         <th class="p-4 text-left">Estimación de Tiempo (Manual)</th>
@@ -31,7 +64,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="table-row">
                         <td class="p-4">Tarea 1</td>
                         <td class="p-4">20 horas</td>
                         <td class="p-4">22 horas</td>
@@ -39,7 +72,7 @@
                         <td class="p-4">$520</td>
                         <td class="p-4 text-green-500">Precisión: 95%</td>
                     </tr>
-                    <tr>
+                    <tr class="table-row">
                         <td class="p-4">Tarea 2</td>
                         <td class="p-4">15 horas</td>
                         <td class="p-4">18 horas</td>
@@ -51,24 +84,40 @@
             </table>
         </div>
 
-        <!-- Gráficos de Comparación -->
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-4">Comparación entre Estimaciones Manuales y RNN</h2>
-            <div class="bg-white p-6 rounded-lg shadow-lg">
+        <!-- Gráficos de Comparación y Historial de Estimaciones -->
+        <div class="flex mb-6 space-x-6">
+            <!-- Gráficos de Comparación -->
+            <div class="w-1/2 bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4"><i class="fas fa-chart-bar"></i> Comparación entre Estimaciones Manuales y RNN</h2>
                 <!-- Gráfico de Barras Comparando Estimaciones Manuales vs RNN -->
                 <canvas id="comparisonChart" class="w-full h-64"></canvas>
             </div>
-        </div>
 
-        <!-- Historial de Estimaciones -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-4">Historial de Estimaciones</h3>
-            <div>
-                <ul class="list-disc ml-5">
-                    <li>Estimación de Tarea 1: RNN - Precisión 95%</li>
-                    <li>Estimación de Tarea 2: RNN - Precisión 85%</li>
-                    <li>Estimación de Tarea 3: RNN - Precisión 90%</li>
-                </ul>
+            <!-- Historial de Estimaciones -->
+            <div class="w-1/2 bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold mb-4"><i class="fas fa-history"></i> Historial de Estimaciones</h3>
+                <div>
+                    <div class="history-item">
+                        <span><i class="fas fa-tasks"></i> Estimación de Tarea 1: RNN - Precisión 95%</span>
+                        <span class="text-green-500">Completado</span>
+                    </div>
+                    <div class="history-item">
+                        <span><i class="fas fa-tasks"></i> Estimación de Tarea 2: RNN - Precisión 85%</span>
+                        <span class="text-yellow-500">En Progreso</span>
+                    </div>
+                    <div class="history-item">
+                        <span><i class="fas fa-tasks"></i> Estimación de Tarea 3: RNN - Precisión 90%</span>
+                        <span class="text-red-500">Pendiente</span>
+                    </div>
+                    <div class="history-item">
+                        <span><i class="fas fa-tasks"></i> Estimación de Tarea 4: RNN - Precisión 92%</span>
+                        <span class="text-green-500">Completado</span>
+                    </div>
+                    <div class="history-item">
+                        <span><i class="fas fa-tasks"></i> Estimación de Tarea 5: RNN - Precisión 88%</span>
+                        <span class="text-yellow-500">En Progreso</span>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

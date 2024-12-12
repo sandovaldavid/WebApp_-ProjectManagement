@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integración con Herramientas Externas</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
         .custom-header {
             background: linear-gradient(90deg, #1e3a8a, #2563eb);
         }
@@ -19,20 +24,23 @@
             border-color: #2563eb;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
         }
+        .icon {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Cabecera -->
     <header class="flex justify-between items-center p-4 custom-header text-white">
-        <div class="text-2xl font-bold">Configuración de Integración</div>
+        <div class="text-2xl font-bold"><i class="fas fa-cogs icon"></i>Configuración de Integración</div>
     </header>
 
     <!-- Contenido principal -->
     <main class="p-8">
         <!-- Configuración de API -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-xl font-semibold mb-4">Conectar con Herramientas Externas</h2>
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-plug icon"></i>Conectar con Herramientas Externas</h2>
             <form id="api-config-form">
                 <div class="mb-4">
                     <label for="tool" class="block text-gray-700">Seleccionar Herramienta</label>
@@ -54,17 +62,17 @@
                         <option>Sincronización Automática (Semanal)</option>
                     </select>
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded custom-button">Conectar</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded custom-button"><i class="fas fa-link icon"></i>Conectar</button>
             </form>
         </div>
 
         <!-- Importación/Exportación de Datos -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-xl font-semibold mb-4">Importar/Exportar Datos</h2>
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-file-import icon"></i>Importar/Exportar Datos</h2>
             <div class="mb-4">
                 <label class="block text-gray-700">Importar desde Archivo</label>
                 <input type="file" class="w-full p-2 border rounded custom-input mb-4">
-                <button class="bg-green-500 text-white px-4 py-2 rounded custom-button">Importar</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded custom-button"><i class="fas fa-file-upload icon"></i>Importar</button>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Exportar a Formato</label>
@@ -73,13 +81,13 @@
                     <option>Excel</option>
                     <option>Google Sheets</option>
                 </select>
-                <button class="bg-yellow-500 text-white px-4 py-2 rounded custom-button">Exportar</button>
+                <button class="bg-yellow-500 text-white px-4 py-2 rounded custom-button"><i class="fas fa-file-export icon"></i>Exportar</button>
             </div>
         </div>
 
         <!-- Vista de Datos Importados -->
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-semibold mb-4">Vista de Datos Importados</h2>
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-table icon"></i>Vista de Datos Importados</h2>
             <table class="w-full bg-white shadow-lg rounded-lg">
                 <thead class="bg-gray-200">
                     <tr>
@@ -91,19 +99,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="hover:bg-gray-100">
                         <td class="p-4">Proyecto A</td>
                         <td class="p-4">10</td>
                         <td class="p-4">Juan Pérez</td>
                         <td class="p-4">01/01/2024</td>
-                        <td class="p-4 text-green-500">Importado Correctamente</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle icon"></i>Importado Correctamente</td>
                     </tr>
-                    <tr>
+                    <tr class="hover:bg-gray-100">
                         <td class="p-4">Proyecto B</td>
                         <td class="p-4">5</td>
                         <td class="p-4">María López</td>
                         <td class="p-4">10/12/2023</td>
-                        <td class="p-4 text-red-500">Error en Importación</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle icon"></i>Error en Importación</td>
+                    </tr>
+                    <tr class="hover:bg-gray-100">
+                        <td class="p-4">Proyecto C</td>
+                        <td class="p-4">8</td>
+                        <td class="p-4">Carlos García</td>
+                        <td class="p-4">15/11/2023</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle icon"></i>Importado Correctamente</td>
+                    </tr>
+                    <tr class="hover:bg-gray-100">
+                        <td class="p-4">Proyecto D</td>
+                        <td class="p-4">12</td>
+                        <td class="p-4">Ana Martínez</td>
+                        <td class="p-4">20/10/2023</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle icon"></i>Error en Importación</td>
+                    </tr>
+                    <tr class="hover:bg-gray-100">
+                        <td class="p-4">Proyecto E</td>
+                        <td class="p-4">7</td>
+                        <td class="p-4">Luis Fernández</td>
+                        <td class="p-4">05/09/2023</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle icon"></i>Importado Correctamente</td>
                     </tr>
                 </tbody>
             </table>

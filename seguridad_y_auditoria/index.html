@@ -6,12 +6,14 @@
     <title>Seguridad y Auditoría</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
         header {
             background: linear-gradient(to right, #4a90e2, #007aff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .bg-blue-600 {
             background-color: #007aff;
@@ -21,6 +23,18 @@
         }
         .hover\:bg-blue-700:hover {
             background-color: #005bb5;
+        }
+        .text-red-500 {
+            color: #e3342f;
+        }
+        .text-green-500 {
+            color: #38c172;
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -69,6 +83,66 @@
                         <td class="p-4">12/12/2024 01:45 PM</td>
                         <td class="p-4">Recurso: "Servidor AWS"</td>
                     </tr>
+                    <tr>
+                        <td class="p-4">Ana Gómez</td>
+                        <td class="p-4">Actualizó un documento</td>
+                        <td class="p-4">12/12/2024 02:00 PM</td>
+                        <td class="p-4">Documento: "Política de Seguridad"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Luis Martínez</td>
+                        <td class="p-4">Creó un usuario</td>
+                        <td class="p-4">12/12/2024 02:30 PM</td>
+                        <td class="p-4">Usuario: "pedro@example.com"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Sofía Hernández</td>
+                        <td class="p-4">Modificó permisos</td>
+                        <td class="p-4">12/12/2024 03:00 PM</td>
+                        <td class="p-4">Permisos: "Administrador"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Pedro Jiménez</td>
+                        <td class="p-4">Eliminó un archivo</td>
+                        <td class="p-4">12/12/2024 03:30 PM</td>
+                        <td class="p-4">Archivo: "backup.zip"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Laura Sánchez</td>
+                        <td class="p-4">Creó una tarea</td>
+                        <td class="p-4">12/12/2024 04:00 PM</td>
+                        <td class="p-4">Tarea: "Revisión de Seguridad"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Jorge Ramírez</td>
+                        <td class="p-4">Actualizó un proyecto</td>
+                        <td class="p-4">12/12/2024 04:30 PM</td>
+                        <td class="p-4">Proyecto: "Desarrollo Web"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Elena Díaz</td>
+                        <td class="p-4">Modificó una política</td>
+                        <td class="p-4">12/12/2024 05:00 PM</td>
+                        <td class="p-4">Política: "Acceso Remoto"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Miguel Ángel</td>
+                        <td class="p-4">Eliminó un usuario</td>
+                        <td class="p-4">12/12/2024 05:30 PM</td>
+                        <td class="p-4">Usuario: "ana@example.com"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Patricia Ruiz</td>
+                        <td class="p-4">Creó un informe</td>
+                        <td class="p-4">12/12/2024 06:00 PM</td>
+                        <td class="p-4">Informe: "Auditoría Anual"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Fernando Castillo</td>
+                        <td class="p-4">Actualizó una tarea</td>
+                        <td class="p-4">12/12/2024 06:30 PM</td>
+                        <td class="p-4">Tarea: "Implementación de Seguridad"</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -89,13 +163,73 @@
                     <tr>
                         <td class="p-4">192.168.1.1</td>
                         <td class="p-4">12/12/2024 09:00 AM</td>
-                        <td class="p-4 text-red-500">Fallido</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle mr-1"></i>Fallido</td>
                         <td class="p-4">Contraseña incorrecta</td>
                     </tr>
                     <tr>
                         <td class="p-4">admin@example.com</td>
                         <td class="p-4">12/12/2024 09:15 AM</td>
-                        <td class="p-4 text-green-500">Exitoso</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle mr-1"></i>Exitoso</td>
+                        <td class="p-4">Inicio de sesión correcto</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">192.168.1.2</td>
+                        <td class="p-4">12/12/2024 09:30 AM</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle mr-1"></i>Fallido</td>
+                        <td class="p-4">Usuario no encontrado</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">user@example.com</td>
+                        <td class="p-4">12/12/2024 09:45 AM</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle mr-1"></i>Exitoso</td>
+                        <td class="p-4">Inicio de sesión correcto</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">192.168.1.3</td>
+                        <td class="p-4">12/12/2024 10:00 AM</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle mr-1"></i>Fallido</td>
+                        <td class="p-4">Contraseña incorrecta</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">admin2@example.com</td>
+                        <td class="p-4">12/12/2024 10:15 AM</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle mr-1"></i>Exitoso</td>
+                        <td class="p-4">Inicio de sesión correcto</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">192.168.1.4</td>
+                        <td class="p-4">12/12/2024 10:30 AM</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle mr-1"></i>Fallido</td>
+                        <td class="p-4">Usuario no encontrado</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">guest@example.com</td>
+                        <td class="p-4">12/12/2024 10:45 AM</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle mr-1"></i>Exitoso</td>
+                        <td class="p-4">Inicio de sesión correcto</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">192.168.1.5</td>
+                        <td class="p-4">12/12/2024 11:00 AM</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle mr-1"></i>Fallido</td>
+                        <td class="p-4">Contraseña incorrecta</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">user2@example.com</td>
+                        <td class="p-4">12/12/2024 11:15 AM</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle mr-1"></i>Exitoso</td>
+                        <td class="p-4">Inicio de sesión correcto</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">192.168.1.6</td>
+                        <td class="p-4">12/12/2024 11:30 AM</td>
+                        <td class="p-4 text-red-500"><i class="fas fa-times-circle mr-1"></i>Fallido</td>
+                        <td class="p-4">Usuario no encontrado</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">admin3@example.com</td>
+                        <td class="p-4">12/12/2024 11:45 AM</td>
+                        <td class="p-4 text-green-500"><i class="fas fa-check-circle mr-1"></i>Exitoso</td>
                         <td class="p-4">Inicio de sesión correcto</td>
                     </tr>
                 </tbody>
@@ -112,6 +246,16 @@
                         <option>Juan Pérez</option>
                         <option>María López</option>
                         <option>Carlos Torres</option>
+                        <option>Pedro Jiménez</option>
+                        <option>Laura Sánchez</option>
+                        <option>Jorge Ramírez</option>
+                        <option>Elena Díaz</option>
+                        <option>Miguel Ángel</option>
+                        <option>Patricia Ruiz</option>
+                        <option>Fernando Castillo</option>
+                        <option>Ana Gómez</option>
+                        <option>Luis Martínez</option>
+                        <option>Sofía Hernández</option>
                     </select>
                 </div>
                 <div class="mb-4">
@@ -121,6 +265,16 @@
                         <option>Jefe de Proyecto</option>
                         <option>Desarrollador</option>
                         <option>Cliente</option>
+                        <option>Analista</option>
+                        <option>Tester</option>
+                        <option>Soporte</option>
+                        <option>Consultor</option>
+                        <option>Gerente</option>
+                        <option>Coordinador</option>
+                        <option>Auditor</option>
+                        <option>Operador</option>
+                        <option>Supervisor</option>
+                        <option>Especialista</option>
                     </select>
                 </div>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"><i class="fas fa-save mr-2"></i>Guardar Cambios</button>

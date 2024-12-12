@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .header-gradient {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #059669, #047857);
+        }
+        .btn-secondary {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(90deg, #dc2626, #b91c1c);
+        }
         .modal {
             transition: opacity 0.25s ease;
         }
@@ -18,21 +37,27 @@
             opacity: 0;
             pointer-events: none;
         }
+        .table-row:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .table-row:hover {
+            background-color: #e5e7eb;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Cabecera -->
-    <header class="flex justify-between items-center p-4 bg-blue-600 text-white shadow-md">
-        <div class="text-2xl font-bold">Gestión de Usuarios</div>
-        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" onclick="openCreateUserForm()">Crear Usuario</button>
+    <header class="header-gradient flex justify-between items-center p-4 text-white shadow-md">
+        <div class="text-2xl font-bold"><i class="fas fa-users"></i> Gestión de Usuarios</div>
+        <button class="btn-primary text-white px-4 py-2 rounded" onclick="openCreateUserForm()"><i class="fas fa-user-plus"></i> Crear Usuario</button>
     </header>
 
     <!-- Contenido principal -->
     <main class="p-8">
         <!-- Lista de Usuarios -->
         <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-4">Lista de Usuarios</h2>
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-list"></i> Lista de Usuarios</h2>
             <table class="w-full bg-white shadow-lg rounded-lg">
                 <thead class="bg-gray-200">
                     <tr>
@@ -44,24 +69,54 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="table-row">
                         <td class="p-4">Juan Pérez</td>
                         <td class="p-4">juan.perez@example.com</td>
                         <td class="p-4">Jefe de Proyecto</td>
                         <td class="p-4">01/01/2022</td>
                         <td class="p-4">
-                            <button class="text-blue-500">Editar</button>
-                            <button class="text-red-500">Eliminar</button>
+                            <button class="text-blue-500"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="text-red-500"><i class="fas fa-trash-alt"></i> Eliminar</button>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="table-row">
                         <td class="p-4">María López</td>
                         <td class="p-4">maria.lopez@example.com</td>
                         <td class="p-4">Desarrollador</td>
                         <td class="p-4">15/02/2022</td>
                         <td class="p-4">
-                            <button class="text-blue-500">Editar</button>
-                            <button class="text-red-500">Eliminar</button>
+                            <button class="text-blue-500"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="text-red-500"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="p-4">Carlos García</td>
+                        <td class="p-4">carlos.garcia@example.com</td>
+                        <td class="p-4">Cliente</td>
+                        <td class="p-4">20/03/2022</td>
+                        <td class="p-4">
+                            <button class="text-blue-500"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="text-red-500"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="p-4">Ana Torres</td>
+                        <td class="p-4">ana.torres@example.com</td>
+                        <td class="p-4">Desarrollador</td>
+                        <td class="p-4">05/04/2022</td>
+                        <td class="p-4">
+                            <button class="text-blue-500"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="text-red-500"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="p-4">Luis Martínez</td>
+                        <td class="p-4">luis.martinez@example.com</td>
+                        <td class="p-4">Jefe de Proyecto</td>
+                        <td class="p-4">10/05/2022</td>
+                        <td class="p-4">
+                            <button class="text-blue-500"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="text-red-500"><i class="fas fa-trash-alt"></i> Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -72,7 +127,7 @@
     <!-- Formulario de Creación/Edición de Usuario -->
     <div id="modal-create-user" class="modal modal-inactive fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg shadow-lg w-1/2">
-            <h3 class="text-xl font-semibold mb-4">Crear Usuario</h3>
+            <h3 class="text-xl font-semibold mb-4"><i class="fas fa-user-plus"></i> Crear Usuario</h3>
             <form id="create-user-form">
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700">Nombre Completo</label>
@@ -94,8 +149,8 @@
                         <option>Cliente</option>
                     </select>
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Crear Usuario</button>
-                <button type="button" class="ml-2 text-red-500 hover:text-red-700" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="btn-primary text-white px-4 py-2 rounded"><i class="fas fa-save"></i> Crear Usuario</button>
+                <button type="button" class="ml-2 btn-secondary text-white px-4 py-2 rounded" onclick="closeModal()"><i class="fas fa-times"></i> Cancelar</button>
             </form>
         </div>
     </div>

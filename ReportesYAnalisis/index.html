@@ -5,20 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportes y Análisis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        }
+        header {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #ffffff, #f3f4f6);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            color: #2563eb;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
     <!-- Cabecera -->
-    <header class="flex justify-between items-center p-4 bg-blue-600 text-white">
-        <div class="text-2xl font-bold">Generar Reportes</div>
+    <header class="flex justify-between items-center p-4 text-white">
+        <div class="text-2xl font-bold"><i class="fas fa-chart-pie icon mr-2"></i>Generar Reportes</div>
     </header>
 
     <!-- Contenido principal -->
     <main class="p-8">
         <!-- Filtros para los reportes -->
-        <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-xl font-semibold mb-4">Filtros para Generar Reporte</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 card">
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-filter icon mr-2"></i>Filtros para Generar Reporte</h2>
             <form id="filters-form">
                 <div class="mb-4">
                     <label for="period" class="block text-gray-700">Periodo</label>
@@ -40,26 +70,26 @@
                         <option>María López</option>
                     </select>
                 </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Generar Reporte</button>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded btn"><i class="fas fa-chart-line mr-2"></i>Generar Reporte</button>
             </form>
         </div>
 
         <!-- Gráficos de Resultados -->
-        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 grid grid-cols-2 gap-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 grid grid-cols-2 gap-4 card">
             <div>
-                <h2 class="text-xl font-semibold mb-4">Gráfico de Comparación</h2>
+                <h2 class="text-xl font-semibold mb-4"><i class="fas fa-chart-bar icon mr-2"></i>Gráfico de Comparación</h2>
                 <canvas id="comparison-chart" class="w-full h-32 mb-4"></canvas>
             </div>
             <div>
-                <h2 class="text-xl font-semibold mb-4">Gráfico de Desempeño</h2>
+                <h2 class="text-xl font-semibold mb-4"><i class="fas fa-chart-line icon mr-2"></i>Gráfico de Desempeño</h2>
                 <canvas id="resource-performance" class="w-full h-32"></canvas>
             </div>
         </div>
 
         <!-- Botones de Exportación -->
-        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 flex justify-end">
-            <button class="bg-green-500 text-white px-4 py-2 rounded mr-4" onclick="exportPDF()">Exportar PDF</button>
-            <button class="bg-yellow-500 text-white px-4 py-2 rounded" onclick="exportCSV()">Exportar CSV</button>
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6 flex justify-end card">
+            <button class="bg-green-500 text-white px-4 py-2 rounded btn mr-4" onclick="exportPDF()"><i class="fas fa-file-pdf mr-2"></i>Exportar PDF</button>
+            <button class="bg-yellow-500 text-white px-4 py-2 rounded btn" onclick="exportCSV()"><i class="fas fa-file-csv mr-2"></i>Exportar CSV</button>
         </div>
     </main>
 
