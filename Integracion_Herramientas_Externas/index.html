@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración con Herramientas Externas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .custom-header {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+        }
+        .custom-button {
+            transition: background-color 0.3s ease;
+        }
+        .custom-button:hover {
+            background-color: #1e40af;
+        }
+        .custom-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Cabecera -->
+    <header class="flex justify-between items-center p-4 custom-header text-white">
+        <div class="text-2xl font-bold">Configuración de Integración</div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="p-8">
+        <!-- Configuración de API -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-4">Conectar con Herramientas Externas</h2>
+            <form id="api-config-form">
+                <div class="mb-4">
+                    <label for="tool" class="block text-gray-700">Seleccionar Herramienta</label>
+                    <select id="tool" class="w-full p-2 border rounded custom-input">
+                        <option>Jira</option>
+                        <option>Trello</option>
+                        <option>Google Sheets</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="api-key" class="block text-gray-700">Clave API</label>
+                    <input type="text" id="api-key" class="w-full p-2 border rounded custom-input" placeholder="Ingresar clave API" required>
+                </div>
+                <div class="mb-4">
+                    <label for="sync-options" class="block text-gray-700">Opciones de Sincronización</label>
+                    <select id="sync-options" class="w-full p-2 border rounded custom-input">
+                        <option>Sincronización Manual</option>
+                        <option>Sincronización Automática (Diaria)</option>
+                        <option>Sincronización Automática (Semanal)</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded custom-button">Conectar</button>
+            </form>
+        </div>
+
+        <!-- Importación/Exportación de Datos -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-4">Importar/Exportar Datos</h2>
+            <div class="mb-4">
+                <label class="block text-gray-700">Importar desde Archivo</label>
+                <input type="file" class="w-full p-2 border rounded custom-input mb-4">
+                <button class="bg-green-500 text-white px-4 py-2 rounded custom-button">Importar</button>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Exportar a Formato</label>
+                <select class="w-full p-2 border rounded custom-input mb-4">
+                    <option>CSV</option>
+                    <option>Excel</option>
+                    <option>Google Sheets</option>
+                </select>
+                <button class="bg-yellow-500 text-white px-4 py-2 rounded custom-button">Exportar</button>
+            </div>
+        </div>
+
+        <!-- Vista de Datos Importados -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Vista de Datos Importados</h2>
+            <table class="w-full bg-white shadow-lg rounded-lg">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-4 text-left">Nombre del Proyecto</th>
+                        <th class="p-4 text-left">Tareas</th>
+                        <th class="p-4 text-left">Responsables</th>
+                        <th class="p-4 text-left">Fecha de Creación</th>
+                        <th class="p-4 text-left">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-4">Proyecto A</td>
+                        <td class="p-4">10</td>
+                        <td class="p-4">Juan Pérez</td>
+                        <td class="p-4">01/01/2024</td>
+                        <td class="p-4 text-green-500">Importado Correctamente</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Proyecto B</td>
+                        <td class="p-4">5</td>
+                        <td class="p-4">María López</td>
+                        <td class="p-4">10/12/2023</td>
+                        <td class="p-4 text-red-500">Error en Importación</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>
