@@ -17,9 +17,14 @@
 
     <!-- Contenido principal -->
     <main class="p-8">
+        <!-- Search bar -->
+        <div class="mb-6 flex justify-between items-center">
+            <h2 class="text-xl font-semibold">Lista de Recursos</h2>
+            <input type="text" placeholder="Buscar recurso..." class="p-2 border rounded w-1/3">
+        </div>
+        
         <!-- Lista de Recursos -->
         <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-4">Lista de Recursos</h2>
             <table class="w-full bg-white shadow-lg rounded-lg">
                 <thead class="bg-gray-200">
                     <tr>
@@ -89,12 +94,19 @@
                   <input type="date" id="start-date" class="w-full p-2 border rounded mb-2" placeholder="Fecha de inicio">
                   <input type="date" id="end-date" class="w-full p-2 border rounded" placeholder="Fecha de fin">
               </div>
-              <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Asignar</button>
-              <button type="button" class="ml-2 text-red-500" onclick="closeModal()">Cancelar</button>
+              <div class="flex justify-end">
+                  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Asignar</button>
+                  <button type="button" class="ml-2 text-red-500" onclick="closeModal()">Cancelar</button>
+              </div>
           </form>
       </div>
   </div>
   
+  <!-- Footer -->
+  <footer class="p-4 bg-blue-600 text-white text-center">
+      <p>&copy; 2023 Gestión de Recursos. Todos los derechos reservados.</p>
+  </footer>
+
   <script>
       function closeModal() {
           document.getElementById("modal-assign-resource").classList.add("hidden");
