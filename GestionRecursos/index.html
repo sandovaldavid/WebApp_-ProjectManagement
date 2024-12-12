@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Recursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Cabecera -->
+    <header class="flex justify-between items-center p-4 bg-blue-600 text-white">
+        <div class="text-2xl font-bold">Gestión de Recursos</div>
+        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="showModal()">Registrar Recurso</button>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="p-8">
+        <!-- Lista de Recursos -->
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4">Lista de Recursos</h2>
+            <table class="w-full bg-white shadow-lg rounded-lg">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-4 text-left">Nombre</th>
+                        <th class="p-4 text-left">Tipo</th>
+                        <th class="p-4 text-left">Disponibilidad</th>
+                        <th class="p-4 text-left">Costo</th>
+                        <th class="p-4 text-left">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-4">Desarrollador A</td>
+                        <td class="p-4">Humano</td>
+                        <td class="p-4 text-green-500">Disponible</td>
+                        <td class="p-4">$25/hora</td>
+                        <td class="p-4">
+                            <button class="text-blue-500">Editar</button>
+                            <button class="text-red-500">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Laptop Dell</td>
+                        <td class="p-4">Material</td>
+                        <td class="p-4 text-yellow-500">Asignado</td>
+                        <td class="p-4">$500</td>
+                        <td class="p-4">
+                            <button class="text-blue-500">Editar</button>
+                            <button class="text-red-500">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Vista de Disponibilidad de Recursos -->
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4">Disponibilidad de Recursos</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <ul class="list-disc ml-5">
+                    <li><span class="font-bold">Desarrollador A:</span> Disponible</li>
+                    <li><span class="font-bold">Laptop Dell:</span> Ocupada en el Proyecto X</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <div id="modal-assign-resource" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg w-1/2">
+          <h3 class="text-xl font-semibold mb-4">Asignar Recurso</h3>
+          <form>
+              <div class="mb-4">
+                  <label for="resource" class="block text-gray-700">Seleccionar Recurso</label>
+                  <select id="resource" class="w-full p-2 border rounded">
+                      <option>Desarrollador A</option>
+                      <option>Laptop Dell</option>
+                  </select>
+              </div>
+              <div class="mb-4">
+                  <label for="project-task" class="block text-gray-700">Asignar a Proyecto/Tarea</label>
+                  <select id="project-task" class="w-full p-2 border rounded">
+                      <option>Proyecto X - Tarea 1</option>
+                      <option>Proyecto Y - Tarea 2</option>
+                  </select>
+              </div>
+              <div class="mb-4">
+                  <label for="date-range" class="block text-gray-700">Fechas de Asignación</label>
+                  <input type="date" id="start-date" class="w-full p-2 border rounded mb-2" placeholder="Fecha de inicio">
+                  <input type="date" id="end-date" class="w-full p-2 border rounded" placeholder="Fecha de fin">
+              </div>
+              <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Asignar</button>
+              <button type="button" class="ml-2 text-red-500" onclick="closeModal()">Cancelar</button>
+          </form>
+      </div>
+  </div>
+  
+  <script>
+      function closeModal() {
+          document.getElementById("modal-assign-resource").classList.add("hidden");
+      }
+      function showModal() {
+          document.getElementById("modal-assign-resource").classList.remove("hidden");
+      }
+  </script>
+
+</body>
+
+
+</html>
+
+
+
