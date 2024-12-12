@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad y Auditoría</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            background: linear-gradient(to right, #4a90e2, #007aff);
+        }
+        .bg-blue-600 {
+            background-color: #007aff;
+        }
+        .hover\:underline:hover {
+            text-decoration: underline;
+        }
+        .hover\:bg-blue-700:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Cabecera -->
+    <header class="flex justify-between items-center p-4 text-white">
+        <div class="text-2xl font-bold"><i class="fas fa-shield-alt mr-2"></i>Seguridad y Auditoría</div>
+        <nav>
+            <a href="#registro-actividades" class="mr-4 hover:underline"><i class="fas fa-list-alt mr-1"></i>Registro de Actividades</a>
+            <a href="#intentos-acceso" class="mr-4 hover:underline"><i class="fas fa-user-shield mr-1"></i>Intentos de Acceso</a>
+            <a href="#gestion-roles" class="hover:underline"><i class="fas fa-user-cog mr-1"></i>Gestión de Roles</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="p-8">
+        <!-- Vista de Auditoría -->
+        <div id="registro-actividades" class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-list-alt mr-2"></i>Registro de Actividades</h2>
+            <table class="w-full bg-white shadow-lg rounded-lg">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-4 text-left">Usuario</th>
+                        <th class="p-4 text-left">Acción</th>
+                        <th class="p-4 text-left">Fecha y Hora</th>
+                        <th class="p-4 text-left">Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-4">Juan Pérez</td>
+                        <td class="p-4">Creó un proyecto</td>
+                        <td class="p-4">12/12/2024 10:30 AM</td>
+                        <td class="p-4">Proyecto: "Sistema de Gestión de Recursos"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">María López</td>
+                        <td class="p-4">Modificó una tarea</td>
+                        <td class="p-4">12/12/2024 11:15 AM</td>
+                        <td class="p-4">Tarea: "Implementación del Backend"</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Carlos Torres</td>
+                        <td class="p-4">Eliminó un recurso</td>
+                        <td class="p-4">12/12/2024 01:45 PM</td>
+                        <td class="p-4">Recurso: "Servidor AWS"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Monitoreo de Intentos de Acceso -->
+        <div id="intentos-acceso" class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-user-shield mr-2"></i>Intentos de Acceso</h2>
+            <table class="w-full bg-white shadow-lg rounded-lg">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-4 text-left">Usuario/IP</th>
+                        <th class="p-4 text-left">Fecha y Hora</th>
+                        <th class="p-4 text-left">Estado</th>
+                        <th class="p-4 text-left">Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-4">192.168.1.1</td>
+                        <td class="p-4">12/12/2024 09:00 AM</td>
+                        <td class="p-4 text-red-500">Fallido</td>
+                        <td class="p-4">Contraseña incorrecta</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">admin@example.com</td>
+                        <td class="p-4">12/12/2024 09:15 AM</td>
+                        <td class="p-4 text-green-500">Exitoso</td>
+                        <td class="p-4">Inicio de sesión correcto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Panel de Control de Acceso -->
+        <div id="gestion-roles" class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4"><i class="fas fa-user-cog mr-2"></i>Gestión de Roles y Permisos</h2>
+            <form id="roles-permissions-form">
+                <div class="mb-4">
+                    <label for="user" class="block text-gray-700">Seleccionar Usuario</label>
+                    <select id="user" class="w-full p-2 border rounded">
+                        <option>Juan Pérez</option>
+                        <option>María López</option>
+                        <option>Carlos Torres</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="role" class="block text-gray-700">Asignar Rol</label>
+                    <select id="role" class="w-full p-2 border rounded">
+                        <option>Administrador</option>
+                        <option>Jefe de Proyecto</option>
+                        <option>Desarrollador</option>
+                        <option>Cliente</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"><i class="fas fa-save mr-2"></i>Guardar Cambios</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
