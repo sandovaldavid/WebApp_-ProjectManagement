@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Cabecera -->
+    <header class="flex justify-between items-center p-4 bg-blue-600 text-white">
+        <div class="text-2xl font-bold">Gestión de Usuarios</div>
+        <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="openCreateUserForm()">Crear Usuario</button>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="p-8">
+        <!-- Lista de Usuarios -->
+        <div class="mb-6">
+            <h2 class="text-xl font-semibold mb-4">Lista de Usuarios</h2>
+            <table class="w-full bg-white shadow-lg rounded-lg">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-4 text-left">Nombre</th>
+                        <th class="p-4 text-left">Correo Electrónico</th>
+                        <th class="p-4 text-left">Rol</th>
+                        <th class="p-4 text-left">Fecha de Registro</th>
+                        <th class="p-4 text-left">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-4">Juan Pérez</td>
+                        <td class="p-4">juan.perez@example.com</td>
+                        <td class="p-4">Jefe de Proyecto</td>
+                        <td class="p-4">01/01/2022</td>
+                        <td class="p-4">
+                            <button class="text-blue-500">Editar</button>
+                            <button class="text-red-500">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">María López</td>
+                        <td class="p-4">maria.lopez@example.com</td>
+                        <td class="p-4">Desarrollador</td>
+                        <td class="p-4">15/02/2022</td>
+                        <td class="p-4">
+                            <button class="text-blue-500">Editar</button>
+                            <button class="text-red-500">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Formulario de Creación/Edición de Usuario -->
+    <div id="modal-create-user" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-1/2">
+            <h3 class="text-xl font-semibold mb-4">Crear Usuario</h3>
+            <form id="create-user-form">
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700">Nombre Completo</label>
+                    <input type="text" id="username" class="w-full p-2 border rounded" placeholder="Nombre completo" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" class="w-full p-2 border rounded" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700">Contraseña</label>
+                    <input type="password" id="password" class="w-full p-2 border rounded" placeholder="Contraseña" required>
+                </div>
+                <div class="mb-4">
+                    <label for="role" class="block text-gray-700">Rol</label>
+                    <select id="role" class="w-full p-2 border rounded">
+                        <option>Jefe de Proyecto</option>
+                        <option>Desarrollador</option>
+                        <option>Cliente</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Crear Usuario</button>
+                <button type="button" class="ml-2 text-red-500" onclick="closeModal()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openCreateUserForm() {
+            document.getElementById('modal-create-user').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-create-user').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
