@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Project Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Aquí se incluirá el archivo CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Cabecera -->
+    <header class="flex justify-between items-center p-4 bg-blue-600 text-white">
+        <div class="text-2xl font-bold">Project Management</div>
+        <div class="flex items-center">
+            <img src="https://via.placeholder.com/40" alt="Usuario" class="rounded-full">
+            <span class="ml-2">John Doe</span>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main class="p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Resumen de Proyectos Activos -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Proyectos Activos</h2>
+                <ul>
+                    <li class="mb-2">
+                        <div class="font-bold">Proyecto 1</div>
+                        <div>Fecha de inicio: 01/01/2022</div>
+                        <div>Progreso: <progress value="75" max="100"></progress> 75%</div>
+                        <div>Estado: En progreso</div>
+                        <div>Responsable: Juan Pérez</div>
+                        <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                    </li>
+                    <li class="mb-2">
+                        <div class="font-bold">Proyecto 2</div>
+                        <div>Fecha de inicio: 15/02/2022</div>
+                        <div>Progreso: 50%</div>
+                        <div>Estado: Atrasado</div>
+                    </li>
+                    <li>
+                        <div class="font-bold">Proyecto 3</div>
+                        <div>Fecha de inicio: 10/03/2022</div>
+                        <div>Progreso: 90%</div>
+                        <div>Estado: Completado</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Estadísticas de Tareas -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Estadísticas de Tareas</h2>
+                <canvas id="taskChart"></canvas>
+            </div>
+
+            <!-- Accesos Directos -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Accesos Directos</h2>
+                <div class="space-y-2">
+                    <button class="w-full py-2 px-4 bg-blue-500 text-white rounded">Crear Proyecto</button>
+                    <button class="w-full py-2 px-4 bg-green-500 text-white rounded">Crear Tarea</button>
+                    <button class="w-full py-2 px-4 bg-yellow-500 text-white rounded">Gestionar Recursos</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Notificaciones -->
+    <div id="notifications" class="fixed bottom-0 right-0 m-4">
+        <!-- Notificaciones emergentes -->
+    </div>
+
+    <script>
+        // Gráfico de tareas
+        var ctx = document.getElementById('taskChart').getContext('2d');
+        var taskChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Pendientes', 'En Progreso', 'Completadas'],
+                datasets: [{
+                    label: 'Tareas',
+                    data: [5, 7, 12],
+                    backgroundColor: ['#f39c12', '#3498db', '#2ecc71']
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
